@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fibonacci-wasm
+spec:
+  nodeSelector:
+    kubernetes.io/arch: wasm32-wasi
+  containers:
+  - name: fibonacci-wasm
+    image: ghcr.io/nao-ri/fibonacci-wasm:1.0
+    imagePullPolicy: Always
+  imagePullSecrets:
+    - name: dockerconfigjson-github-com
+  tolerations:
+  - effect: NoExecute
+    key: kubernetes.io/arch
+    operator: Equal
+    value: wasm32-wasi
+  - effect: NoSchedule
+    key: kubernetes.io/arch
+    operator: Equal
+    value: wasm32-wasi
