@@ -22,8 +22,9 @@ int main(void)
   {
     n++;
     // フィボナッチ数の出力(n>0)
-    if (n == 1000000000)
+    if (n == 100000000)
     {
+	printf("calculation now\n");
       printf("%lf\n", f1);
       fflush(stdout);
       n = 0;
