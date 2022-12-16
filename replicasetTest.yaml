@@ -1,12 +1,13 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: hello
+  name: hello-wasm-build-errer
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: wasm
+
   template:
     metadata:
       labels:
